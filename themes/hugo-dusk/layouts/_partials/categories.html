@@ -1,0 +1,10 @@
+
+{{if .Params.categories}}
+<div class="categories">
+  {{ range .Params.categories }}
+    <div class="category">
+      <a href="/categories/{{ . | urlize }}">{{.}}</a>
+    </div>
+  {{ end }}
+</div>
+{{ end }}

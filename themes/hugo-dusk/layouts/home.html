@@ -1,0 +1,37 @@
+
+{{ partial "header.html" . }}
+
+<main>
+
+{{if .Site.Params.enable_separate_main_page }}
+  <div class=author>
+    <h2> {{ .Site.Params.Author.name }} </h2>
+    {{ .Site.Params.Author.intro | markdownify  }}
+  </div>
+  
+  <h3>Recent posts:</h3>
+
+  <div class="recent-post-list">
+
+  {{ range first 3 (where .Site.RegularPages "Type" "in" site.Params.mainSections) }}
+  <div class="recent-post-item">
+    <a href="{{ .Permalink }}"> <div class="recent-post">{{ .Title }} </div> </a>
+    <div class="date"> {{ .Date.Format "2006-01-02" }} </div>
+  </div>
+  {{ end }}
+  <a href="/blog">See all posts</a>
+  </div>
+{{ else }}
+
+  {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
+    {{ range $paginator.Pages }}
+      {{ .Render "summary" }}
+  
+  {{ end }}
+  {{ partial "paginator-menu.html" . }}
+
+{{ end }}
+
+</main>
+
+{{ partial "footer.html" . }}

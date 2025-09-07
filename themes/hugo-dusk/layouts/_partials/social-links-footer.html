@@ -1,0 +1,44 @@
+<div class="social-links-footer">
+
+  {{with .Site.Params.email}}
+  <a href="mailto:{{.}}"><div class="social-link">Email</div></a>
+  {{end}}
+
+  {{with .Site.Params.github}}
+  <a href="https://github.com/{{.}}" target="_blank"><div class="social-link">GitHub</div></a> 
+  <div class="social-link">|</div>
+  {{end}}
+
+  {{with .Site.Params.discord}}
+  <a href="https://discord.gg/{{.}}" target="_blank"><div class="social-link">Discord</div></a>
+  <div class="social-link">|</div>
+  {{end}}
+
+  {{with .Site.Params.bluesky}}
+  <a href="https://bsky.app/profile/{{.}}" target="_blank"><div class="social-link">Bluesky</div></a>
+  <div class="social-link">|</div>
+  {{end}}
+
+  {{with .Site.Params.gitlab}}
+  <a href="https://gitlab.com/{{.}}" target="_blank"><div class="social-link">GitLab</div></a>
+  {{end}}
+
+  {{with .Site.Params.twitter}}
+  <a href="https://twitter.com/{{.}}" target="_blank"><div class="social-link">Twitter</div></a>
+  {{end}}
+
+  {{with .Site.Params.linkedin}}
+  <a href="https://www.linkedin.com/in/{{.}}" target="_blank"><div class="social-link">LinkedIn</div></a>
+  {{end}}
+
+  {{with .Site.Params.mastodon}}
+  <a rel="me" href="{{.server}}/@{{.username}}" target="_blank"><div class="social-link">Mastodon</div></a>
+  {{end}}
+
+  <div class="social-link">
+  {{ with .OutputFormats.Get "rss" -}}
+    <a href="{{ .RelPermalink }}">RSS</a>
+  {{ end }}
+  </div>
+
+</div>

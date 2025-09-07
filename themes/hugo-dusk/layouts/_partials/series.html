@@ -1,0 +1,10 @@
+
+{{if .Params.series}}
+  <div class="series">
+    {{ range .Params.series }}
+      <div class="series-name">
+        <a href="/series/{{ . | urlize }}">{{.}}</a>
+      </div>
+    {{ end }}
+  </div>
+{{ end }}
