@@ -6,17 +6,16 @@
 
   {{with .Site.Params.github}}
   <a href="https://github.com/{{.}}" target="_blank"><div class="social-link">GitHub</div></a> 
-  <div class="social-link">|</div>
   {{end}}
 
   {{with .Site.Params.discord}}
-  <a href="https://discord.gg/{{.}}" target="_blank"><div class="social-link">Discord</div></a>
   <div class="social-link">|</div>
+  <a href="https://discord.gg/{{.}}" target="_blank"><div class="social-link">Discord</div></a>
   {{end}}
 
   {{with .Site.Params.bluesky}}
-  <a href="https://bsky.app/profile/{{.}}" target="_blank"><div class="social-link">Bluesky</div></a>
   <div class="social-link">|</div>
+  <a href="https://bsky.app/profile/{{.}}" target="_blank"><div class="social-link">Bluesky</div></a>
   {{end}}
 
   {{with .Site.Params.gitlab}}
@@ -35,10 +34,11 @@
   <a rel="me" href="{{.server}}/@{{.username}}" target="_blank"><div class="social-link">Mastodon</div></a>
   {{end}}
 
-  <div class="social-link">
   {{ with .OutputFormats.Get "rss" -}}
+  <div class="social-link">|</div>
+  <div class="social-link">
     <a href="{{ .RelPermalink }}">RSS</a>
-  {{ end }}
   </div>
+  {{ end }}
 
 </div>
